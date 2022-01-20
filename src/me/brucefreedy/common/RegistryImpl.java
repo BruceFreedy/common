@@ -7,7 +7,15 @@ import java.util.*;
 @ToString
 public abstract class RegistryImpl<K, T> implements Registry<K, T> {
 
-    private final Map<K, T> registry = new HashMap<>();
+    public RegistryImpl(RegistryImpl<K, T> registry) {
+        this.registry = registry.newMap();
+    }
+
+    public RegistryImpl() {
+        this.registry = new HashMap<>();
+    }
+
+    private final Map<K, T> registry;
 
     @Override
     public final void register(K name, T t) {
@@ -32,4 +40,18 @@ public abstract class RegistryImpl<K, T> implements Registry<K, T> {
         return new HashSet<>(registry.keySet());
     }
 
+    @Override
+    public <TYPE> TYPE getRegistry(K name, Class<TYPE> t1Class) {
+        try {
+            T registry = getRegistry(name);
+            return (TYPE) registry;
+        } catch (ClassCastException ignored) {
+            return null;
+        }
+    }
+
+    @Override
+    public Map<K, T> newMap() {
+        return new HashMap<>(registry);
+    }
 }

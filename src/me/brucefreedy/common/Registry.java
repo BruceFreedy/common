@@ -1,6 +1,7 @@
 package me.brucefreedy.common;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -21,5 +22,9 @@ public interface Registry<K, T> {
     Collection<T> getRegistry();
 
     Set<K> getKeys();
+
+    <TYPE> TYPE getRegistry(K name, Class<TYPE> tClass);
+
+    Map<K, T> newMap();
 
 }
