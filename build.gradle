@@ -35,3 +35,7 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
+shadowJar {
+    shadowJar.archiveName = 'common.jar'
+}
+
