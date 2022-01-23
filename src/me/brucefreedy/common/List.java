@@ -51,6 +51,11 @@ public class List<T> extends ArrayList<T> {
         return get(0);
     }
 
-
+    @Override
+    public String toString() {
+        if (isEmpty()) return super.toString();
+        else if (size() == 1) return get(0).toString();
+        else return toString();
+    }
 
 }
