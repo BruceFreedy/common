@@ -19,6 +19,9 @@ version = 1.0
 sourceSets.main.java.srcDirs = [ "src/" ]
 sourceSets.test.java.srcDirs = [ "test/" ]
 
+shadowJar { shadowJar.archiveName = 'common.jar' }
+jar.finalizedBy(shadowJar)
+
 repositories {
     mavenCentral()
 }
@@ -33,9 +36,5 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
-}
-
-shadowJar {
-    shadowJar.archiveName = 'common.jar'
 }
 
