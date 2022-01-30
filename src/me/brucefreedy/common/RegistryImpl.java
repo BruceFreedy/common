@@ -5,7 +5,7 @@ import lombok.ToString;
 import java.util.*;
 
 @ToString
-public abstract class RegistryImpl<K, T> implements Registry<K, T> {
+public class RegistryImpl<K, T> implements Registry<K, T> {
 
     public RegistryImpl(RegistryImpl<K, T> registry) {
         this.registry = registry.newMap();
