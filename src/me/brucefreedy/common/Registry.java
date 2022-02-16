@@ -27,4 +27,10 @@ public interface Registry<K, T> {
 
     Map<K, T> newMap();
 
+    Map<K, T> map();
+
+    Collection<T> values();
+
+    Set<K> keys();
+
 }

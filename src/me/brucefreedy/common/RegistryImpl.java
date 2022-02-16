@@ -54,4 +54,19 @@ public class RegistryImpl<K, T> implements Registry<K, T> {
     public Map<K, T> newMap() {
         return new HashMap<>(registry);
     }
+
+    @Override
+    public Collection<T> values() {
+        return registry.values();
+    }
+
+    @Override
+    public Set<K> keys() {
+        return registry.keySet();
+    }
+
+    @Override
+    public Map<K, T> map() {
+        return registry;
+    }
 }
