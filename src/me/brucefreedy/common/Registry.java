@@ -21,8 +21,6 @@ public interface Registry<K, T> {
 
     Collection<T> getRegistry();
 
-    Set<K> getKeys();
-
     <TYPE> TYPE getRegistry(K name, Class<TYPE> tClass);
 
     Map<K, T> newMap();

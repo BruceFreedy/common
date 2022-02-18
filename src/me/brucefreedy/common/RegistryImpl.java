@@ -36,11 +36,6 @@ public class RegistryImpl<K, T> implements Registry<K, T> {
     }
 
     @Override
-    public final Set<K> getKeys() {
-        return new HashSet<>(registry.keySet());
-    }
-
-    @Override
     public <TYPE> TYPE getRegistry(K name, Class<TYPE> t1Class) {
         try {
             T registry = getRegistry(name);
