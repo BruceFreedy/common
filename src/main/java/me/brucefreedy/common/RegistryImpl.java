@@ -1,10 +1,7 @@
 package me.brucefreedy.common;
 
-import lombok.ToString;
-
 import java.util.*;
 
-@ToString
 public class RegistryImpl<K, T> implements Registry<K, T> {
 
     public RegistryImpl(RegistryImpl<K, T> registry) {
@@ -16,6 +13,11 @@ public class RegistryImpl<K, T> implements Registry<K, T> {
     }
 
     private final Map<K, T> registry;
+
+    @Override
+    public String toString() {
+        return registry.toString();
+    }
 
     @Override
     public final void register(K name, T t) {
